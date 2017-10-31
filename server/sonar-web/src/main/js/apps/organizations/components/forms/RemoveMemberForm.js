@@ -60,6 +60,12 @@ export default class RemoveMemberForm extends React.PureComponent {
     this.closeForm();
   };
 
+  handleClose = (e /*: MouseEvent */) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.closeForm();
+  };
+
   renderModal() {
     return (
       <Modal contentLabel="modal form" onRequestClose={this.closeForm}>
@@ -81,7 +87,7 @@ export default class RemoveMemberForm extends React.PureComponent {
               <button type="submit" className="button-red" autoFocus={true}>
                 {translate('remove')}
               </button>
-              <button type="reset" className="button-link" onClick={this.closeForm}>
+              <button type="reset" className="button-link" onClick={this.handleClose}>
                 {translate('cancel')}
               </button>
             </div>

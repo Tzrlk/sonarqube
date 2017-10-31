@@ -72,6 +72,12 @@ export default class AddMemberForm extends React.PureComponent {
     }
   };
 
+  handleClose = (e /*: MouseEvent */) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.closeForm();
+  };
+
   selectedMemberChange = (member /*: Member */) => {
     this.setState({ selectedMember: member });
   };
@@ -100,7 +106,7 @@ export default class AddMemberForm extends React.PureComponent {
               <button type="submit" disabled={!this.state.selectedMember}>
                 {translate('organization.members.add_to_members')}
               </button>
-              <button type="reset" className="button-link" onClick={this.closeForm}>
+              <button type="reset" className="button-link" onClick={this.handleClose}>
                 {translate('cancel')}
               </button>
             </div>

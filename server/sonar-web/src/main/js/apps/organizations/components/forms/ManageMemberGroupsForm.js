@@ -104,6 +104,12 @@ export default class ManageMemberGroupsForm extends React.PureComponent {
     this.closeForm();
   };
 
+  handleClose = (e /*: MouseEvent */) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.closeForm();
+  };
+
   renderModal() {
     return (
       <Modal contentLabel="modal form" onRequestClose={this.closeForm}>
@@ -135,7 +141,7 @@ export default class ManageMemberGroupsForm extends React.PureComponent {
           <footer className="modal-foot">
             <div>
               <button type="submit">{translate('save')}</button>
-              <button type="reset" className="button-link" onClick={this.closeForm}>
+              <button type="reset" className="button-link" onClick={this.handleClose}>
                 {translate('cancel')}
               </button>
             </div>
